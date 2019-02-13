@@ -1,5 +1,5 @@
 # Euler's Method
-A function to help estimate the a point-set solution to an ordinary differential equation.
+A function to help estimate the point-set solution to an ordinary differential equation.
 
 ## Why?
 Because this was easier than doing the WebWork problem by hand.
