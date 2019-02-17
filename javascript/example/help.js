@@ -1,4 +1,4 @@
-const EulersMethod = require('./index');
+const EulersMethod = require('../index');
 
 // Change these
 const slope = (x, y) => Math.exp(x-y);
