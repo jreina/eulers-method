@@ -1,13 +1,16 @@
-module Euler (euler) where
+module Euler 
+(
+  euler
+) where
 
-data Result = Result { x :: Float
-                     , y :: Float 
+data Result = Result { x :: Double
+                     , y :: Double 
                      } deriving (Show)
 
-computeResult :: (Float -> Float -> Float) -> Float -> Float -> Float -> Result
+computeResult :: (Double -> Double -> Double) -> Double -> Double -> Double -> Result
 computeResult slope x y h = Result { x = (x + h), y = ((slope x y) * h) }
 
-eulerR :: (Float -> Float -> Float) -> Float -> Float -> Float -> Int -> Int -> [Result] -> [Result]
+eulerR :: (Double -> Double -> Double) -> Double -> Double -> Double -> Int -> Int -> [Result] -> [Result]
 eulerR slope x_0 y_0 h steps stepsRemaining results
   | stepsRemaining == steps = eulerR slope x_0 y_0 h steps (stepsRemaining - 1) [(computeResult slope x_0 y_0 h)]
   | stepsRemaining == 0 = results
@@ -20,5 +23,5 @@ eulerR slope x_0 y_0 h steps stepsRemaining results
 
 -- Approximates the solution to an ordinary differential equation given
 -- an initial value, an increment (h) and number of steps to approximate over
-euler :: (Float -> Float -> Float) -> Float -> Float -> Float -> Int -> [Result]
+euler :: (Double -> Double -> Double) -> Double -> Double -> Double -> Int -> [Result]
 euler slope x_0 y_0 h steps = eulerR slope x_0 y_0 h steps steps []
